@@ -23,6 +23,7 @@
         alt="AccessMap: Mapping Access for All"
         class="access_map_logo" id="updateRatingLogo">
 
+<<<<<<< HEAD
         <div class="mapAndRatings-Container">
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mx7SpBX4Ltn8MPGGnxRmxjTDcyLwmdQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
                  
@@ -47,6 +48,20 @@
                 <button type="submit">Submit</button>
             </form>    
         </div>
+=======
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mx7SpBX4Ltn8MPGGnxRmxjTDcyLwmdQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+
+        <form action="/update_rating" method="POST">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <p class="flash">{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+>>>>>>> 907cc5c (fix(find a location): fix routes)
 
       
     </body>

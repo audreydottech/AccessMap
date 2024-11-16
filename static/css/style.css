@@ -152,6 +152,7 @@ form {
   margin-top: 20px;
 }
 
+<<<<<<< HEAD
 /***UPDATERATING***/
 
 #updateRatingLogo {
@@ -177,4 +178,10 @@ form {
 .mapAndRatings-Container form input {
   margin-bottom: 1rem;
   margin-top: 0.3rem;
+=======
+/***Error Messages***/
+
+.flash {
+  color:#cf727f;
+>>>>>>> 907cc5c (fix(find a location): fix routes)
 }

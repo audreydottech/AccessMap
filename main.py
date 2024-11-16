@@ -17,6 +17,8 @@ from models import Locations
 # Configure application
 app = Flask(__name__)
 
+app.config["SECRET_KEY"] = "IAMAKEY"
+
 # ------------------- Google Sheets API Setup ------------------- #
 
 import gspread
@@ -47,6 +49,7 @@ def sign_up():
     """
     
     if request.method == "POST":
+        # Get user's input from the form
         username = request.form.get("txt")
         email = request.form.get("email")
         password = request.form.get("pswd")
@@ -76,7 +79,7 @@ def choose_accessibility_filters():
         
         return redirect(url_for("home"))
     
-    return render_template("signup-cont.html")
+    return render_template("accessibilityneeds.html")
 
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in():
@@ -84,7 +87,7 @@ def log_in():
     
     return render_template("Home.html")
 
-@app.route("/find_location", methods=["GET", "POST"])
+@app.route("/find_a_location", methods=["GET", "POST"])
 def find_a_location():
     """Allows a user to search for a location by name or address""" 
 
@@ -154,9 +157,10 @@ def update_rating():
         
         if not sensory_rating and not mobility_rating and not service_dog_relief_rating \
             and not wheelchair_rating and not common_allergens_rating:
-                # TODO: The user must choose to update either a sensory, mobility, service dog relief,
+                # The user must choose to update either a sensory, mobility, service dog relief,
                 # wheelchair, or common allergens rating 
-                print("Please add a category rating.")
+                flash("Please add a category rating.")
+                return redirect(url_for("update_rating"))
                 
         else:
             # If the user puts an accessibility rating in, update database
@@ -169,6 +173,7 @@ def update_rating():
                                 ServiceDogRelief=service_dog_relief_rating, WheelchairAccessible=wheelchair_rating,
                                 CommonAllergenRisk=common_allergens_rating)
 
+            print(new_record)
             try:
                 add_new_rating_to_db(new_record)
                 
