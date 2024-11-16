@@ -151,3 +151,30 @@ form {
   border: 2px solid #ccc;
   margin-top: 20px;
 }
+
+/***UPDATERATING***/
+
+#updateRatingLogo {
+  transform: scale(0.1);
+  position: relative;
+  top: -26rem;
+  left: -27rem;
+}
+
+.mapAndRatings-Container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: -48rem;
+  column-gap: 7rem;
+}
+
+.mapAndRatings-Container form {
+  margin-top: 4rem;
+}
+
+.mapAndRatings-Container form input {
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}

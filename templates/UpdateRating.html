@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Access Map</title>
+        <title>Access Map: Update Rating</title>
 
         <!-- Fonts: Noto Serif & Poppins -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,36 +14,40 @@
             rel="stylesheet">
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="static/css/style.css">
-        <link rel="stylesheet" href="static/css/reset.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/reset.css">
     </head>
     <body>
         <!-- AccessMap Logo credit to Miranda -->
-        <img src="static/images/AccessMapLogo.png"
+        <img src="/static/images/logo variations/just logo.png"
         alt="AccessMap: Mapping Access for All"
-        class="access_map_logo">
+        class="access_map_logo" id="updateRatingLogo">
 
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mx7SpBX4Ltn8MPGGnxRmxjTDcyLwmdQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+        <div class="mapAndRatings-Container">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1mx7SpBX4Ltn8MPGGnxRmxjTDcyLwmdQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
                  
-        <form action="/update_rating" method="POST">
+            <form action="/update_rating" method="POST">
+    
+                <!-- TODO: Call the average rating for each category -->
+                <label for="sensoryrating">Sensory Rating:</label><br>
+                <input type="text" id="sensory" name="sensoryrating"><br>
+    
+                <label for="mobilityrating">Mobility Rating:</label><br>
+                <input type="text" id="mobility" name="mobilityrating"><br>
+    
+                <label for="sdogreliefrating">Service Dog Relief Rating:</label><br>
+                <input type="text" id="sd_relief" name="sdogreliefrating"><br>
+    
+                <label for="wheelchairrating">Wheelchair Accessibility Rating:</label><br>
+                <input type="text" id="wheelchair" name="wheelchairrating"><br>
+    
+                <label for="commonallergens">Common Allergens Rating:</label><br>
+                <input type="text" id="allergens" name="commonallergens"><br>
+    
+                <button type="submit">Submit</button>
+            </form>    
+        </div>
 
-            <!-- TODO: Call the average rating for each category -->
-            <label for="sensoryrating">Sensory Rating:</label><br>
-            <input type="text" id="sensory" name="sensoryrating"><br>
-
-            <label for="mobilityrating">Mobility Rating:</label><br>
-            <input type="text" id="mobility" name="mobilityrating"><br>
-
-            <label for="sdogreliefrating">Service Dog Relief Rating:</label><br>
-            <input type="text" id="sd_relief" name="sdogreliefrating"><br>
-
-            <label for="wheelchairrating">Wheelchair Accessibility Rating:</label><br>
-            <input type="text" id="wheelchair" name="wheelchairrating"><br>
-
-            <label for="commonallergens">Common Allergens Rating:</label><br>
-            <input type="text" id="allergens" name="commonallergens"><br>
-
-            <button type="submit">Submit</button>
-        </form>    
+      
     </body>
 </html>
